@@ -1,4 +1,5 @@
 @echo off
+
 set root=%LOCALAPPDATA%\nvim\takeoff
 set reldir=%root%\target\release
 set exe=%reldir%\takeoff.exe
