@@ -10,4 +10,3 @@ if not exist %exe% (
     popd
 )
 call "%exe%" %*
-
