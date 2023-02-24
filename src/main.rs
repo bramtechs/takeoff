@@ -21,7 +21,7 @@ static SHELL: &str = "powershell";
 
 #[cfg(target_os = "windows")]
 static BUILD_SCRIPTS: CmdArray = &[
-    ("forge/forge.bat", "build"),
+    ("./forge/forge.bat", "build"),
     ("./build.bat", ""),
     ("./build.ps1", ""),
 ];
