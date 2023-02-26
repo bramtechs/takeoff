@@ -21,7 +21,7 @@ static SHELL: &str = "powershell";
 
 #[cfg(target_os = "windows")]
 static BUILD_SCRIPTS: CmdArray = &[
-    ("forge/forge.bat", "build"),
+    ("./forge/forge.bat", "build"),
     ("./build.bat", ""),
     ("./build.ps1", ""),
 ];
@@ -37,11 +37,11 @@ fn run_exec(cmd: &Cmd) -> Result<String, String> {
         .output()
         .expect("Failed to run command");
 
+    let info = String::from_utf8_lossy(&process.stdout).to_string();
     if process.status.success() {
-        let msg = String::from_utf8_lossy(&process.stdout).to_string();
-        return Ok(msg);
+        return Ok(info);
     } else {
-        let msg = String::from_utf8_lossy(&process.stderr).to_string();
+        let msg = format!("{}:{}",info, String::from_utf8_lossy(&process.stderr).to_string());
         return Err(msg);
     }
 }
