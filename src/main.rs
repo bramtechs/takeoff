@@ -7,13 +7,13 @@ type CmdArray = &'static [Cmd];
 
 // === LINUX ===
 #[cfg(target_os = "linux")]
-static SHELL: &str = "sh";
+const SHELL: &str = "sh";
 
 #[cfg(target_os = "linux")]
-static BUILD_SCRIPTS: CmdArray = &[("forge/forge.sh", "build")("build.sh", "")("build", "")];
+const BUILD_SCRIPTS: CmdArray = &[("forge/forge.sh", "build"),("build.sh", ""),("build", "")];
 
 #[cfg(target_os = "linux")]
-static RUN_SCRIPTS: CmdArray = &[("forge/forge.sh", "run")("run.sh", "")("run", "")];
+const RUN_SCRIPTS: CmdArray = &[("forge/forge.sh", "run"),("run.sh", ""),("run", "")];
 
 // === WINDOWS ===
 #[cfg(target_os = "windows")]
